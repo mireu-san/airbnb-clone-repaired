@@ -6,11 +6,19 @@
 }
 
 .nav_link{
-    @apply ml-8 border-b-2 border-white hover:border-gray-600 h-full flex items-center;
+    @apply ml-6 border-b-2 border-white hover:border-gray-600 h-full flex items-center;
     a {
         @apply py-10 px-5;
-    }
 }
+}
+
+.btn{
+    @apply  text-center rounded-sm py-5 font-medium text-lg w-full;  
+    }
+
+.input{
+    @apply rounded-sm py-5 font-medium text-lg w-full text-left border border-gray-600 px-5 focus:outline-none focus:border-purple-700;
+    }
 
 @tailwind utilities;
 

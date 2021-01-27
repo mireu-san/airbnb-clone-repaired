@@ -8,10 +8,21 @@
 {% endblock search-bar %}
 
 {% block content %}
-    {% include 'partials/social_login.html' %}
 
-    <form method="POST" action="{% url "users:login" %}">
-        {{form.as_p}}
-        <button>Login</button>
-    </form>
+    <div class="container lg:w-5/12 md:w-1/2 xl:w-1/4 mx-auto my-10 flex flex-col item-center border p-6 border-gray-300">
+
+        {% include 'partials/social_login.html' %}
+
+        <form method="POST" action="{% url "users:login" %}" class="w-full">
+            <input type="email" placeholder="Email Address" class="btn mb-3" >
+            <input type="password" placeholder="Password" class="btn mb-3" >
+            <button class="btn bg-red-500 text-white">Login</button>
+        </form>
+    
+        <div class="mt-5">
+            <span class="mr-2">Are you yet a member of our website?</span>
+            <a href="{% url 'users:signup' %}" class="text-teal-500 font-medium">Sign Up</a>
+        </div>
+    </div>
+
 {% endblock content %}
