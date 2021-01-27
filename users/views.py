@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import redirect, reverse
 from django.contrib.auth import authenticate, login, logout
 from django.core.files.base import ContentFile
+from django.contrib import messages
 from . import forms, models
 
 
@@ -33,7 +34,6 @@ class SignUpView(FormView):
     template_name = "users/signup.html"
     form_class = forms.SignUpForm
     success_url = reverse_lazy("core:home")
-    initial = {"first_name": "Nicoas", "last_name": "Serr", "email": "itn@las.com"}
 
     def form_valid(self, form):
         form.save()
@@ -73,6 +73,8 @@ class GithubException(Exception):
 
 def github_callback(request):
     try:
+        code = request.GET.get("code")
+        raise KakaoException()
         client_id = os.environ.get("GH_ID")
         client_secret = os.environ.get("GH_SECRET")
         code = request.GET.get("code", None)
@@ -183,4 +185,5 @@ def kakao_callback(request):
         login(request, user)
         return redirect(reverse("core:home"))
     except KakaoException:
+        messages.error(request, "something went wrong")
         return redirect(reverse("users:login"))
