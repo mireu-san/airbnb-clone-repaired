@@ -1,0 +1,10 @@
+# Query: demonstration
+# Flags: RegExp
+# ContextLines: 1
+
+1 result - 1 file
+
+templates/partials/footer.html:
+  1  <footer class="container mx-auto text-center py-10 border-t font-medium text-gray-500">
+  2:     &copy; 2021 Mireu The Fake Airbnb, Inc. Do not use this for commercial purpose. FOR YOUR EYES ONLY.
+  3  </footer>

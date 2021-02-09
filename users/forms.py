@@ -1,6 +1,7 @@
 from django import forms
 from . import models
 
+
 class LoginForm(forms.Form):
 
     email = forms.EmailField(widget=forms.EmailInput(attrs={"placeholder": "Email"}))
@@ -16,9 +17,10 @@ class LoginForm(forms.Form):
             if user.check_password(password):
                 return self.cleaned_data
             else:
-                self.add_error(None, forms.ValidationError("password is wrong"))
+                self.add_error("password", forms.ValidationError("Password is wrong"))
         except models.User.DoesNotExist:
             self.add_error("email", forms.ValidationError("User does not exist"))
+
 
 class SignUpForm(forms.ModelForm):
     class Meta:
@@ -27,7 +29,7 @@ class SignUpForm(forms.ModelForm):
         widgets = {
             "first_name": forms.TextInput(attrs={"placeholder": "First Name"}),
             "last_name": forms.TextInput(attrs={"placeholder": "Last Name"}),
-            "email": forms.EmailInput(attrs={"placeholder": "Email Address"}),
+            "email": forms.EmailInput(attrs={"placeholder": "Email Name"}),
         }
 
     password = forms.CharField(
@@ -42,10 +44,10 @@ class SignUpForm(forms.ModelForm):
         try:
             models.User.objects.get(email=email)
             raise forms.ValidationError(
-                "You might already registered in the past. The email address does exist", code="existing_user"
+                "That email is already taken", code="existing_user"
             )
         except models.User.DoesNotExist:
-            return email  
+            return email
 
     def clean_password1(self):
         password = self.cleaned_data.get("password")

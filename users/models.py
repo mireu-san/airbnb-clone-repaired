@@ -7,6 +7,7 @@ from django.utils.html import strip_tags
 from django.shortcuts import reverse
 from django.template.loader import render_to_string
 
+
 class User(AbstractUser):
 
     """ Custom User Model """
@@ -33,10 +34,12 @@ class User(AbstractUser):
 
     LOGIN_EMAIL = "email"
     LOGIN_GITHUB = "github"
-    LOGIN_KAKAO = "kakao"
+    LOGING_KAKAO = "kakao"
 
     LOGIN_CHOICES = (
-        (LOGIN_EMAIL, "Email"), (LOGIN_GITHUB, "Github"), (LOGIN_KAKAO, "Kakao"),
+        (LOGIN_EMAIL, "Email"),
+        (LOGIN_GITHUB, "Github"),
+        (LOGING_KAKAO, "Kakao"),
     )
 
     avatar = models.ImageField(upload_to="avatars", blank=True)
@@ -52,19 +55,20 @@ class User(AbstractUser):
     superhost = models.BooleanField(default=False)
     email_verified = models.BooleanField(default=False)
     email_secret = models.CharField(max_length=20, default="", blank=True)
-    login_method = models.CharField(max_length=50, choices=LOGIN_CHOICES, default=LOGIN_EMAIL)
+    login_method = models.CharField(
+        max_length=50, choices=LOGIN_CHOICES, default=LOGIN_EMAIL
+    )
 
     def get_absolute_url(self):
-        return reverse('user:profile', kwargs={'pk': self.pk})
+        return reverse("users:profile", kwargs={"pk": self.pk})
 
     def verify_email(self):
         if self.email_verified is False:
-            secret = "12345"
+            secret = uuid.uuid4().hex[:20]
             self.email_secret = secret
             html_message = render_to_string(
-                "emails/verify_email.html", {"secret":secret}
+                "emails/verify_email.html", {"secret": secret}
             )
-
             send_mail(
                 "Verify Airbnb Account",
                 strip_tags(html_message),
