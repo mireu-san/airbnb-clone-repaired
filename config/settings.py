@@ -86,7 +86,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "HOST": "airbnb-clone.c5pvqh9bveav.us-east-2.rds.amazonaws.com",
+        "NAME": "airbnb-clone",
+        "USER": "postgresql",
+        "PASSWORD": "tira4an%in",
+        "PORT": "5432",
     }
 }
 
