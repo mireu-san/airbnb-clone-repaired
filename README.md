@@ -5,8 +5,11 @@ BE 부분: 파이썬 라이브러리인 Django.
 FE 부분: Tailwind CSS
 
 요약:
-굵직한 에러부터 가벼운 에러까지, 정말 다양하게 겪어본 중규모 개인 프로젝트. (피로도: 4/5)
-진행기간: 약 2.5
+굵직한 에러부터 가벼운 에러까지, 정말 다양하게 겪어본 중규모 개인 프로젝트.
+진행기간: 약 2.5개월
+
+스크린샷:
+https://drive.google.com/drive/folders/1FIpt9-Lcr7HdK5yQqEKU17VVd9kxVYvm?usp=sharing
 
 후기:
 느낀 장점.
@@ -29,6 +32,7 @@ FE 부분: Tailwind CSS
 
 향후 계획: 
 React 또는 Vue.js 를 습득하며 새로운 사이드 프로젝트를 좀 간소한 사이즈로 이번에는 해 볼 예정.
+
 
 
 Cloning Airbnb 
