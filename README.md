@@ -30,7 +30,8 @@ https://drive.google.com/drive/folders/1FIpt9-Lcr7HdK5yQqEKU17VVd9kxVYvm?usp=sha
 5.이것저것 기록 수정이 가능한 SQL 기능. MySQL 보다는 좀 더 자율적인 프레임워크.
 
 향후 계획: 
-React 또는 Vue.js 를 습득하며 새로운 사이드 프로젝트를 좀 간소한 사이즈로 이번에는 해 볼 예정.
+Node.js 를 통하여 BE와 FE 영역을 한번 더 다져보고 싶다는 생각이 들었음. 
+향후에는 React 또는 Vue.js 를 습득하며 새로운 사이드 프로젝트를 좀 간소한 사이즈로 이번에는 해 볼 예정.
 
 
 
